@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 1.875rem;
+  color: #f4f4f5;
+  font-weight: 600;
+  line-height: 36px;
+}
+
+p {
+  font-size: 1.125rem;
+  color: #a1a1aa;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+input {
+  caret-color: white;
+}

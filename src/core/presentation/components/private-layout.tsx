@@ -8,22 +8,22 @@ import {
   NavbarMenu,
   NavbarMenuItem,
   NavbarMenuToggle,
-} from "@heroui/react";
-import { useEffect, useState } from "react";
-import { Outlet, useNavigate } from "react-router";
+} from '@heroui/react'
+import { useEffect, useState } from 'react'
+import { Outlet, useNavigate } from 'react-router'
 
-const menuItems = ["Clientes", "Pedidos", "Produtos", "Sair"];
+const menuItems = ['Clientes', 'Pedidos', 'Produtos', 'Sair']
 
 export const PrivateLayout = () => {
-  const navigate = useNavigate();
-  const storage = localStorage.getItem("account");
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate()
+  const storage = localStorage.getItem('accessToken')
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
 
   useEffect(() => {
     if (!storage) {
-      navigate("/", { replace: true });
+      navigate('/', { replace: true })
     }
-  }, [navigate, storage]);
+  }, [navigate, storage])
 
   return (
     <div className="flex h-screen w-full flex-col bg-background dark">
@@ -35,7 +35,7 @@ export const PrivateLayout = () => {
       >
         <NavbarContent>
           <NavbarMenuToggle
-            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             className="text-white sm:hidden"
           />
           <NavbarBrand>
@@ -45,13 +45,13 @@ export const PrivateLayout = () => {
         </NavbarContent>
 
         <NavbarContent className="hidden gap-4 sm:flex" justify="center">
-          <NavbarItem>
-            <Link color="foreground" href="#">
+          <NavbarItem isActive>
+            <Link aria-current="page" href="#">
               Clientes
             </Link>
           </NavbarItem>
-          <NavbarItem isActive>
-            <Link aria-current="page" href="#">
+          <NavbarItem>
+            <Link color="foreground" href="#">
               Pedidos
             </Link>
           </NavbarItem>
@@ -68,7 +68,7 @@ export const PrivateLayout = () => {
         </NavbarContent>
         <NavbarContent justify="end">
           <NavbarItem>
-            <Button as={Link} color="primary" href="#" variant="flat">
+            <Button as={Link} color="danger" href="#" variant="flat">
               Sair
             </Button>
           </NavbarItem>
@@ -80,10 +80,10 @@ export const PrivateLayout = () => {
                 className="w-full"
                 color={
                   index === 2
-                    ? "primary"
+                    ? 'primary'
                     : index === menuItems.length - 1
-                      ? "danger"
-                      : "foreground"
+                      ? 'danger'
+                      : 'foreground'
                 }
                 href="#"
                 size="lg"
@@ -98,5 +98,5 @@ export const PrivateLayout = () => {
         <Outlet />
       </main>
     </div>
-  );
-};
+  )
+}
