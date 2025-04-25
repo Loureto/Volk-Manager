@@ -1,6 +1,5 @@
 import { createBrowserRouter } from 'react-router'
-import { PrivateLayout } from '@/shared/layouts'
-import { PublicLayout } from '@/core/presentation'
+import { PrivateLayout, PublicLayout } from '@/shared/layouts'
 
 import { authRoutes } from '@/features/auth'
 import { userRoutes } from '@/features/users'
